@@ -67,12 +67,15 @@ const CourseOrder = () => {
           type: form?.type,
           paymentMethod: payment,
         };
+        console.log(payload);
         try {
-          oderService.registerCourse(payload);
-          await getCourseProfile();
-          await getPayment();
-          message.success("Successfully");
-          navigate(PATHS.HOME);
+          const data = await oderService.registerCourse(payload);
+          if (data) {
+            await getCourseProfile();
+            await getPayment();
+            message.success("Successfully");
+            navigate(PATHS.HOME);
+          }
         } catch (error) {
           console.log(error);
           message.error("Failed");
@@ -91,7 +94,7 @@ const CourseOrder = () => {
       orderedCourse?.paymentMethod && setPayMent(orderedCourse?.paymentMethod);
     }
   }, [profile, typeOptions, orderedCourse, setPayMent]);
-  const isPageLoading = useDebounce(loading, 500);
+  const isPageLoading = useDebounce(loading, 1000);
   if (isPageLoading) return <Loading />;
   return (
     <main className="mainwrapper --ptop">
@@ -188,7 +191,10 @@ const CourseOrder = () => {
                   <span className="checkmark"></span>
                   Thành toán bằng chuyển khoản
                 </Radio.Option>
-                <div className="boxorder__pay-tooltip">
+                <div
+                  className="boxorder__pay-tooltip"
+                  style={{ display: payment === "banking" ? "block" : "none" }}
+                >
                   Sau khi bấm đăng ký, mã khoá học & thông tin tài khoản ngân
                   hàng sẽ được gửi đến email của bạn, bạn vui lòng chuyển khoản
                   với nội dung: mã khoá học, họ và tên, số điện thoại, CFD
@@ -202,7 +208,10 @@ const CourseOrder = () => {
                   <span className="checkmark"></span>
                   Thanh toán bằng ví Momo
                 </Radio.Option>
-                <div className="boxorder__pay-tooltip">
+                <div
+                  className="boxorder__pay-tooltip"
+                  style={{ display: payment === "momo" ? "block" : "none" }}
+                >
                   Sau khi bấm đăng ký, mã khoá học & thông tin tài khoản MoMo sẽ
                   được gửi đến email của bạn, bạn vui lòng chuyển khoản với nội
                   dung: mã khoá học, họ và tên, số điện thoại, CFD Circle sẽ
@@ -216,7 +225,10 @@ const CourseOrder = () => {
                   <span className="checkmark"></span>
                   Thanh toán bằng tiền mặt
                 </Radio.Option>
-                <div className="boxorder__pay-tooltip">
+                <div
+                  className="boxorder__pay-tooltip"
+                  style={{ display: payment === "cash" ? "block" : "none" }}
+                >
                   Sau khi bấm đăng ký, thông tin khoá học sẽ được gửi đến email
                   của bạn, bạn vui lòng đến văn phòng CFD Circle vào ngày khai
                   giảng để đóng học phí tại số 11b, Phan Kế Bính, quận 1, TP Hồ

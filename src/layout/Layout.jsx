@@ -12,10 +12,9 @@ const Layout = () => {
   }, [pathname]);
   useEffect(() => {
     const script = document.createElement("script");
-    script.src = "./dest/main.js";
+    script.src = "/dest/main.js";
     document.body.appendChild(script);
   }, []);
-
   return (
     <AuthenProvider>
       <Header />

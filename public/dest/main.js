@@ -292,6 +292,7 @@ $(document).ready(function () {
       });
     }
   }
+  showHeadCourseDetail();
   function coursePage() {
     if ($(".coursedetailpage").length) {
       showHeadCourseDetail();
@@ -329,13 +330,13 @@ $(document).ready(function () {
 
   //================== SELECT PAYMENT METHOD =====================
 
-  let itemRadioPayment = $(".boxorder__pay");
-  itemRadioPayment.on("click", function () {
-    itemRadioPayment.find(".boxorder__pay-tooltip").hide();
-    $(this).find(".boxorder__pay-tooltip").show();
-  });
+  // let itemRadioPayment = $(".boxorder__pay");
+  // itemRadioPayment.on("click", function () {
+  //   itemRadioPayment.find(".boxorder__pay-tooltip").hide();
+  //   $(this).find(".boxorder__pay-tooltip").show();
+  // });
 
-  $(window).on("load", () => {
-    $(".loading").addClass("--hide");
-  });
+  // $(window).on("load", () => {
+  //   $(".loading").addClass("--hide");
+  // });
 });
