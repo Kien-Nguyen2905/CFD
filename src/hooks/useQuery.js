@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
 export const useQuery = (promise, dependecies = []) => {
   const [data, setData] = useState();
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
   useEffect(() => {
     fecthdata();
   }, dependecies);
   const fecthdata = async (query) => {
     try {
-      setLoading(true);
       const res = await promise(query);
       setData(res || []);
     } catch (error) {

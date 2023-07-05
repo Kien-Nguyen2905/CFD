@@ -94,8 +94,14 @@ const CourseOrder = () => {
       orderedCourse?.paymentMethod && setPayMent(orderedCourse?.paymentMethod);
     }
   }, [profile, typeOptions, orderedCourse, setPayMent]);
-  const isPageLoading = useDebounce(loading, 1000);
-  if (isPageLoading) return <Loading />;
+  const isPageLoading = useDebounce(loading, 250);
+  console.log(isPageLoading);
+  if (isPageLoading)
+    return (
+      <>
+        <Loading />
+      </>
+    );
   return (
     <main className="mainwrapper --ptop">
       <section className="sccourseorder">

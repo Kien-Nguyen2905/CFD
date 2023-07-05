@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { PATHS } from "../../constants/pathname";
 import { useAuThen } from "../authenContext/authenContext";
 const Header = () => {
-  const { profile, onLogout, isOpenModal } = useAuThen();
+  const { profile, onLogout, isOpenModal, handleToggle, toggle } = useAuThen();
   return (
     <header className="header --bgwhite">
       <div className="container-fluid">
@@ -71,7 +71,7 @@ const Header = () => {
             </svg>
           </Link>
         </div>
-        <div className="header__logged">
+        <div className="header__logged" onClick={handleToggle}>
           <div className="userlogged">
             <div
               className="userlogged__avatar user"
@@ -92,7 +92,11 @@ const Header = () => {
                 </svg>
               </i>
             </div>
-            <div className="userlogged__dropdown dropdown">
+            <div
+              className={`userlogged__dropdown dropdown ${
+                toggle ? "active" : ""
+              }`}
+            >
               <div className="userlogged__dropdown-info">
                 <div className="user__img">
                   <img src="/img/avatar_nghia.jpg" alt="Avatar teacher" />

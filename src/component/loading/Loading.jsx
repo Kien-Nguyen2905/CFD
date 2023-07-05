@@ -1,6 +1,7 @@
 import { Spin } from "antd";
 import React from "react";
 import styled from "styled-components";
+import "../loading/index.css";
 const LoadingStyled = styled.div`
   width: 100vw;
   height: 100vh;
@@ -10,9 +11,11 @@ const LoadingStyled = styled.div`
 `;
 const Loading = () => {
   return (
-    <LoadingStyled>
-      <Spin></Spin>
-    </LoadingStyled>
+    <>
+      <LoadingStyled>
+        <Spin size="large"></Spin>
+      </LoadingStyled>
+    </>
   );
 };
 

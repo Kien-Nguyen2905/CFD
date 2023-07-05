@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { createContext, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { PATHS } from "../../constants/pathname";
+import { useToggle } from "../../hooks/useToggle";
 import { authService } from "../../service/authService";
 import { courseService } from "../../service/courseService";
 import { oderService } from "../../service/orderService";
@@ -18,6 +19,7 @@ export const AuthenProvider = (props) => {
   const [course, setCourse] = useState([]);
   const [payment, setPayment] = useState([]);
   const navigate = useNavigate();
+  const { toggle, handleToggle } = useToggle();
   useEffect(() => {
     if (localStorage.getItem("accessToken")) {
       getProfile();
@@ -97,6 +99,7 @@ export const AuthenProvider = (props) => {
     form,
     course,
     payment,
+    toggle,
     setCourse,
     setPayment,
     setOpen,
@@ -111,6 +114,7 @@ export const AuthenProvider = (props) => {
     onRegister,
     getCourseProfile,
     getPayment,
+    handleToggle,
   };
   return (
     <AuthenContext.Provider value={value}>

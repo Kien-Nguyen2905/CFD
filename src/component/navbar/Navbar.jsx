@@ -5,7 +5,13 @@ import { PATHS } from "../../constants/pathname";
 const Navbar = () => {
   return (
     <>
-      <nav className="navbar">
+      <nav
+        className="navbar"
+        // style={{
+        //   opacity: toggle ? "1" : "0",
+        //   visibility: toggle ? "visible" : "hidden",
+        // }}
+      >
         <ul className="navbar__main">
           <li className="navbar__link">
             <NavLink to={PATHS.HOME} className="navbar__item">

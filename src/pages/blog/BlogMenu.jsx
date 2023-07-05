@@ -12,6 +12,7 @@ const BlogMenu = ({ menu }) => {
             <NavLink
               to={PATHS.BLOG + `?tab=${item?.slug}`}
               className="blog__menu-item"
+              style={{ color: tab === item?.slug ? "#00afab" : "black" }}
               key={index}
               end
             >
