@@ -14,7 +14,7 @@ const Layout = () => {
     const script = document.createElement("script");
     script.src = "/dest/main.js";
     document.body.appendChild(script);
-  }, []);
+  }, [pathname]);
   return (
     <AuthenProvider>
       <Header />
