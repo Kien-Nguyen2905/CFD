@@ -2,8 +2,10 @@ import React, { useRef } from "react";
 import Control from "../../component/control/Control";
 import ControlNext from "../../component/control/ControlNext";
 import ControlPrev from "../../component/control/ControlPrev";
+import { BASE_URL } from "../../constants/environments";
 import CourseComingList from "./CourseComingList";
 const CourseComing = ({ courseComing }) => {
+  console.log(BASE_URL);
   if (!courseComing) return;
   const courseComingListRef = useRef(null);
   const handlePrevClick = () => {

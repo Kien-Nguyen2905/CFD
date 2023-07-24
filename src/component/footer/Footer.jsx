@@ -9,13 +9,13 @@ const Footer = () => {
             <h3 className="label">Thông tin</h3>
             <ul>
               <li>
-                <a href="about.html">Về CFD Circle</a>
+                <a href="">Về CFD Circle</a>
               </li>
               <li>
-                <a href="courses.html">Khóa học</a>
+                <a href="">Khóa học</a>
               </li>
               <li>
-                <a href="blog.html">Bài viết</a>
+                <a href="">Bài viết</a>
               </li>
             </ul>
           </div>
@@ -23,13 +23,13 @@ const Footer = () => {
             <h3 className="label">Hỗ trợ</h3>
             <ul>
               <li>
-                <a href="contact.html">Trung tâm hỗ trợ</a>
+                <a href="">Trung tâm hỗ trợ</a>
               </li>
               <li>
-                <a href="payment-method.html">Phương thức thanh toán</a>
+                <a href="">Phương thức thanh toán</a>
               </li>
               <li>
-                <a href="privacy.html">Chính sách và điều khoản</a>
+                <a href="">Chính sách và điều khoản</a>
               </li>
             </ul>
           </div>

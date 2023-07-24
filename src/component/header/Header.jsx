@@ -1,3 +1,5 @@
+import { Avatar } from "antd";
+import { UserOutlined } from "@ant-design/icons";
 import React from "react";
 import { Link } from "react-router-dom";
 import { PATHS } from "../../constants/pathname";
@@ -78,7 +80,7 @@ const Header = () => {
               data-dropdown="userlogged__dropdown"
             >
               <div className="userlogged__avatar-img user__img">
-                <img src="/img/avatar_nghia.jpg" alt="Avatar teacher" />
+                <Avatar size={32} icon={<UserOutlined />} />
               </div>
               <i className="userlogged__avatar-icon">
                 <svg
@@ -95,7 +97,7 @@ const Header = () => {
             <div className="userlogged__dropdown dropdown">
               <div className="userlogged__dropdown-info">
                 <div className="user__img">
-                  <img src="/img/avatar_nghia.jpg" alt="Avatar teacher" />
+                  <Avatar size={50} icon={<UserOutlined />} />
                 </div>
                 {!!localStorage.getItem("accessToken") ? (
                   <Link to={PATHS.PROFILE.INDEX} className="user__info">

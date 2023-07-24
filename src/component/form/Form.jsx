@@ -11,6 +11,7 @@ import Select from "../select/Select";
 import FormGroup from "./FormGroup";
 const Form = () => {
   const [form, setForm] = useState({});
+  // const [test, setTest] = useState(jkdhakjhd);
   const [errors, setErrors] = useState({});
   const [show, setShow] = useState(false);
   const { execute, data } = useMutation(subscribeService.subscribe);

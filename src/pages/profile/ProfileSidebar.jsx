@@ -1,3 +1,5 @@
+import { Avatar } from "antd";
+import { UserOutlined } from "@ant-design/icons";
 import React from "react";
 const ProfileSidebar = ({ profile }) => {
   return (
@@ -6,7 +8,7 @@ const ProfileSidebar = ({ profile }) => {
         <div className="useravatar">
           <div className="avatar">
             <div className="img">
-              <img src="/img/avatar_nghia.jpg" alt="avatar" />
+              <Avatar size={180} icon={<UserOutlined />} />
             </div>
           </div>
           <h3 className="title --t3">{profile?.firstName}</h3>

@@ -11,13 +11,15 @@ instance.interceptors.response.use(
     const originalRequest = error.config;
     if (error.response.status === 401 || error.response.status === 403) {
       try {
-        const data = await instance.put("/customer/refresh", {
-          refreshToken: localStorage.getItem("refreshToken"),
-        });
-        localStorage.setItem("accessToken", data.token);
-        localStorage.setItem("refreshToken", data.refreshToken);
-        originalRequest.headers.Authorization = `Bearer ${data.token}`;
-        return instance(originalRequest);
+        if (localStorage.getItem("accessToken")) {
+          const data = await instance.put("/customer/refresh", {
+            refreshToken: localStorage.getItem("refreshToken"),
+          });
+          localStorage.setItem("accessToken", data.token);
+          localStorage.setItem("refreshToken", data.refreshToken);
+          originalRequest.headers.Authorization = `Bearer ${data.token}`;
+          return instance(originalRequest);
+        }
       } catch (error) {
         console.log(error);
       }
