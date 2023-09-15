@@ -11,10 +11,20 @@ import Select from "../select/Select";
 import FormGroup from "./FormGroup";
 const Form = () => {
   const [form, setForm] = useState({});
-  // const [test, setTest] = useState(jkdhakjhd);
   const [errors, setErrors] = useState({});
   const [show, setShow] = useState(false);
-  const { execute, data } = useMutation(subscribeService.subscribe);
+  const { execute, data } = useMutation(subscribeService.subscribe, {
+    onSuccess: (data) => {
+      if (data) {
+        setForm({});
+        setShow(true);
+      }
+    },
+    onFail: (error) => {
+      console.log(error);
+      message.error("Failed");
+    },
+  });
   const register = (fieldName) => {
     return {
       value: form[fieldName] || "",
@@ -34,12 +44,8 @@ const Form = () => {
         image: "",
       };
       execute(payload);
-      setForm({});
-      setShow(true);
-      message.success("Successfully");
     }
   };
-  console.log(data);
   return (
     <>
       {show && <ModalPopup open={show} handleShow={() => setShow(false)} />}

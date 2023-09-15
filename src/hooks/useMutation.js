@@ -1,5 +1,5 @@
 import { useState } from "react";
-export const useMutation = (promise) => {
+export const useMutation = (promise, { onSuccess, onFail }) => {
   const [data, setData] = useState();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState();
@@ -9,8 +9,10 @@ export const useMutation = (promise) => {
       setLoading(true);
       const res = await promise(...payload);
       setData(res || []);
+      onSuccess(res);
     } catch (error) {
       setError(error);
+      onFail(error);
     } finally {
       setLoading(false);
     }
