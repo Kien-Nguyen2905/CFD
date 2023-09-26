@@ -12,8 +12,19 @@ const ProfileInfo = () => {
   const [form, setForm] = useState({
     password: "***************",
   });
+  console.log(form);
   const { profile, setProfile, errors, setErrors } = useAuThen();
-  const { execute } = useMutation(profileService.putProfile);
+  const { execute } = useMutation(profileService.putProfile, {
+    onSuccess: (data) => {
+      console.log(data);
+      message.success("Successfully");
+      setProfile({ ...payload, email: form?.email });
+    },
+    onFail: (error) => {
+      console.log(error);
+      message.error("Failed");
+    },
+  });
   const register = (fieldName) => {
     return {
       value: form[fieldName] || "",
@@ -35,8 +46,6 @@ const ProfileInfo = () => {
         introduce: form?.introduce || "",
       };
       execute(payload);
-      message.success("Successfully");
-      setProfile({ ...payload, email: form?.email });
       // navigate(PATHS.HOME);
     }
   };
