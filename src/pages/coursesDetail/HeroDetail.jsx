@@ -38,10 +38,7 @@ const HeroDetail = ({ course }) => {
           {!!!localStorage.getItem("accessToken") ? (
             <Button onClick={isOpenModal}>Đăng ký</Button>
           ) : (
-            <Button
-              to={PATHS.REGISTER + `/${course?.slug}`}
-              className={`${!check ? "" : " --disable"}`}
-            >
+            <Button to={PATHS.REGISTER + `/${course?.slug}`}>
               {!check ? "Đăng ký" : "Đã đăng ký"}
             </Button>
           )}

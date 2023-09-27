@@ -16,6 +16,5 @@ export const PATHS = {
     COURSE: PROFILE_PATH + "/my_courses",
     PAYMENT: PROFILE_PATH + "/my_payment",
   },
-
   PAGE404: "*",
 };

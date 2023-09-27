@@ -67,7 +67,6 @@ const CourseOrder = () => {
           type: form?.type,
           paymentMethod: payment,
         };
-        console.log(payload);
         try {
           const data = await oderService.registerCourse(payload);
           if (data) {
@@ -95,7 +94,6 @@ const CourseOrder = () => {
     }
   }, [profile, typeOptions, orderedCourse, setPayMent]);
   const isPageLoading = useDebounce(loading, 250);
-  console.log(isPageLoading);
   if (isPageLoading)
     return (
       <>

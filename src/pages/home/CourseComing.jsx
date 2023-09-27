@@ -5,7 +5,6 @@ import ControlPrev from "../../component/control/ControlPrev";
 import { BASE_URL } from "../../constants/environments";
 import CourseComingList from "./CourseComingList";
 const CourseComing = ({ courseComing }) => {
-  console.log(BASE_URL);
   if (!courseComing) return;
   const courseComingListRef = useRef(null);
   const handlePrevClick = () => {
